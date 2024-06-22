@@ -1,0 +1,3 @@
+[submodule "doctorAi"]
+	path = doctorAi
+	url = https://github.com/Khushhal-Khan/projectFYP.git
