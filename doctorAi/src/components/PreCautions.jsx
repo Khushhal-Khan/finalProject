@@ -12,57 +12,60 @@ const PreCautions = () => {
       <div className={classes.new}>
         <Row gutter={16}>
           <Col span={8}>
-            <Card className={classes.card} title="FEVER" bordered={true}>
+            <Card className={classes.card} >
+            <h1 style={{ marginBottom: "-0.5rem", color: "#22c55e"}}>Fever.</h1><br/>
               Here are some precautions you can take to treat a fever at home:{" "}
               <br />
-              <b> Drink fluids:</b> Drink lots of water, broth, and juices to
+              <b style={{ color: "#22c55e"}}> Drink fluids:</b> Drink lots of water, broth, and juices to
               stay hydrated and help cool your body.
               <br />
-              <b>Dress in light clothing:</b> Wear lightweight clothing and use
+              <b style={{ color: "#22c55e"}}>Dress in light clothing:</b> Wear lightweight clothing and use
               a light blanket if you feel chilled.
               <br />
-              <b>Take a lukewarm bath:</b> Sponge your skin with tepid water or
+              <b style={{ color: "#22c55e"}}>Take a lukewarm bath:</b> Sponge your skin with tepid water or
               take a lukewarm bath, but avoid cold water or alcohol.
               <br />
-              <b>Get rest:</b> Try to get plenty of rest.
+              <b style={{ color: "#22c55e"}}>Get rest:</b> Try to get plenty of rest.
               <br />
-              <b>Eat light foods:</b> Eat easy-to-digest foods.
+              <b style={{ color: "#22c55e"}}>Eat light foods:</b> Eat easy-to-digest foods.
               <br />
             </Card>
           </Col>
           <Col span={8}>
-            <Card className={classes.card} title="HEADACHE" bordered={true}>
+            <Card className={classes.card} >
+            <h1 style={{ marginBottom: "-0.5rem", color: "#22c55e"}}>headache.</h1><br/>
               Here are some precautions you can take to help with a headache:
               <br />
-              <b>Rest:</b> Lie down in a quiet, dark, and cool room and close
+              <b style={{ color: "#22c55e"}}>Rest:</b> Lie down in a quiet, dark, and cool room and close
               your eyes.
               <br />
-              <b>Temperature therapy:</b> Apply a cold, moist cloth or ice pack
+              <b style={{ color: "#22c55e"}}>Temperature therapy:</b> Apply a cold, moist cloth or ice pack
               to the painful area for 10–20 minutes at a time. You can also try
               a warm, moist towel or heating pad on low to relax neck and
               shoulder muscles.
               <br />
-              <b>Massage:</b> Gently massage your head and neck muscles.
+              <b style={{ color: "#22c55e"}}>Massage:</b> Gently massage your head and neck muscles.
               <br />
-              <b>Caffeine:</b> In small amounts, caffeine can relieve migraine
+              <b style={{ color: "#22c55e"}}>Caffeine:</b> In small amounts, caffeine can relieve migraine
               pain in the early stages.
               <br />
             </Card>
           </Col>
           <Col span={8}>
-            <Card className={classes.card} title="FLU" bordered={true}>
-              <b>Avoid close contact with sick people.</b>
+            <Card className={classes.card}  >
+            <h1 style={{ marginBottom: "-0.5rem", color: "#22c55e"}}>Flu.</h1><br/>
+              <b style={{ color: "#22c55e"}}>Avoid close contact with sick people.</b>
               <br />
               People with one or more of the following symptoms: fever, cough,
               sore throat, body aches, headache, chills and fatigue may be
               infected with influenza or another respiratory or other virus.
               Avoid crowded settings, particularly if indoors.
               <br />
-              <b>Cover your mouth and nose:</b> Cover your mouth and nose when
+              <b style={{ color: "#22c55e"}}>Cover your mouth and nose:</b> Cover your mouth and nose when
               you cough or sneeze, and cough and sneeze into the bend of your
               arm.
               <br />
-              <b>Avoid touching your face:</b> Avoid touching your eyes, nose,
+              <b style={{ color: "#22c55e"}}>Avoid touching your face:</b> Avoid touching your eyes, nose,
               or mouth with unwashed hands.
               <br />
             </Card>
@@ -71,11 +74,12 @@ const PreCautions = () => {
 
         <Button
           type="primary"
+          style={{ background: "#22c55e", marginLeft: "1.5rem", marginTop: "2rem", width: "7rem" }}
           onClick={() => {
             navigate(-1);
           }}
         >
-          Go Back
+          Previous.
         </Button>
       </div>
     </>

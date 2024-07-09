@@ -1,16 +1,97 @@
-.card{
+html{
+  padding: 0;
+  margin: -8px;
+  
+  }
+  .first{
+    background-color: #1e293b;
+    height: 735px;
+  }
+  .back{
+    margin-top: 10rem;
+    margin-left: 6rem;
+  }
+  .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -150px;
+    color: white;
+    font-size: large;
+    }
+    .font{
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-weight: 1000;
+    }
+    .font2{
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-weight: 200;
+    }
+    .card{
+      /* align-items: center;
+      justify-content: center; */
+      display: flex;
+      flex-direction: column;
+      justify-content:center ;
+      text-align: center;
+      margin-top: 10rem;
+      margin-left: 10rem;
+      /* background-color: aqua; */
+      width: 70%;
+   }
+   .p{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 150;
+    font-size: large;
+    color: white;
+  }
+  .one{
+    display: flex;
+    /* background-color: blueviolet; */
+    /* justify-content:space-between; */
+    /* width: 100%; */
+    gap: 1rem;
+  }
+  .name{
+    width: 40%;
+  }
+  .two{
+    display: flex;
+    /* justify-content:space-between; */
+    gap: 1rem;
+  }
+  .email{
+    width: 82.5%;
+  }
+  .third{
+    display: flex;
+    /* justify-content:space-between; */
+    gap: 1rem;
+  }
+  .forth{
+    /* display: flex;
+    flex-direction: row; */
+    /* float: left;
+    width: 82.5%; */
+    display: flex;
+    /* justify-content:space-between; */
+    gap: 1rem;
+    /* background-color: yellowgreen; */
+    /* justify-content:space-between; */
+    
+  }
+  .name1{
+    width: 40%;
+    margin-left: -110px;
+  }
+  .name2{
+    width: 50%;
     
     display: flex;
-    flex-direction: column;
-    width: 100%; 
-    justify-content: center;
-    align-items:center;
-    margin-top: 4rem;
-
-}
-.new{
-    background-color: #a1a1aa;
+    justify-content: end;
   }
-  .input{
-    background-color: #d1d5db;
+  .heading{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding-right: 40rem;
+  color: #22c55e;
   }

@@ -1,62 +1,58 @@
-/* html{
-    background-color: gray;
-  
-} */
 
-.mode{
-    display: flex;
-    justify-content: center;
-    margin-top: 7rem;
-    width: 100%;
-}
-.btn2{
-    display: flex;
-    flex-direction: column;
-    height: 10vh;
-}
-.link{
-    color: black;
-    outline: none;
- }
-
-.card{
+    .first {
+        background-color: #1e293b;
+        height: 730px;
+      }
+      .back {
+        margin-top: 10rem;
+        margin-left: 6rem;
+      }
+      .icon1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -150px;
+        color: white;
+        font-size: large;
+      }
+      .font2 {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        font-weight: 800;
+      }
+      .font {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        font-weight: 1000;
+      }
+      .card1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-top: 4rem;
+        margin-left: 15rem;
+        width: 70%;
+        
     
-    background-color: #a1a1aa;
-  
-}
-.input{
-    background-color: #d1d5db;
-}
-.desc{
-    
-    text-align: center;
-    margin-top: 2rem;
-    line-height: 2rem;
-}
-
-.home{
-   
-    margin-right: 5rem;
-    width: 20%;
-    height: 2rem;
-    text-align: center;
-    justify-content: space-evenly;
-    margin-top: 1rem;
-    display: flex;
-}
-.head{
-    margin-left: 3rem;
-}
-.div{
-    display: flex;
-    border-bottom: 2px solid black;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    font-family: "Quicksand", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style:italic;
-    font-size:larger;
-    box-shadow:  5px 5px 5px  #888888;
-    }
+      }
+      .heading {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        padding-right: 40rem;
+      
+        margin-left: -1rem;
+        color: #22c55e;
+      }
+      .button1{
+        margin-left: -32rem;
+        font-size: medium;
+        /* width: 70%; */
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+      }
+      .data{
+        border: none;
+        text-align: center;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        }
+        

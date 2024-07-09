@@ -1,19 +1,55 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import { Card, Input, Button, Flex  } from "antd";
+import {
+  Card,
+  Input,
+  Button,
+  Flex,
+  Avatar,
+  Breadcrumb,
+  Col,
+  Row,
+  Form,
+  Spin ,message
+} from "antd";
 import classes from "./Symptoms.module.css";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-const { TextArea } = Input;
+import { Ollama } from "ollama";
+import Loader from "./Loader";
+import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandHoldingDroplet } from '@fortawesome/free-solid-svg-icons'
+
+const ollama = new Ollama({ host: "http://localhost:11434" });
 
 const Symptoms = () => {
   const [sym, setSym] = useState("");
   const [userData, setUserData] = useState([]);
   const [newData, setNewData] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
+  const [spinning, setSpinning] = useState(false);
+  const [percent, setPercent] = useState(0);
+  const [messageApi, contextHolder] = message.useMessage();
+
+const backHandler = () => {
+  setSpinning(true);
+  let ptg = -10;
+  const interval = setInterval(() => {
+    ptg += 5;
+    setPercent(ptg);
+    if (ptg > 120) {
+      clearInterval(interval);
+      setSpinning(false);
+      setPercent(0);
+    }
+  }, 100);
+  navigate(-1)
+} 
+
 
   useEffect(() => {
-    //hit api
-
     (async () => {
       const res = await axios.get("http://localhost:3000/user/symptoms", {
         headers: {
@@ -29,79 +65,112 @@ const Symptoms = () => {
   }, []);
 
   const sympHandler = async (e) => {
-    const res = await axios.post("http://localhost:11434/api/generate", {
+    e.preventDefault();
+   
+    if(sym === ""){
+      return  messageApi.open({
+        type: "error",
+        content: "Please enter some symptoms!",
+      });
+    }
+
+    setNewData("");
+    setSym("");
+    setLoading(true);
+    const res = await ollama.generate({
+      system: "Do no answer questions except medical questions. only answer in 100 words.",
       model: "gemma:2b",
       prompt: sym,
-      stream: false,
+      stream: true,
     });
-    setNewData(res.data)
-    e.preventDefault();
-    setSym("");
+    for await (const i of res) {
+      setNewData((prev) => prev + i.response);
+      setLoading(false);
+    }
   };
 
   return (
     <>
-      <div className={classes.div}>
-        <h3 className={classes.head}>Smart Doctor</h3>
-        <div className={classes.home}>
-          <span>
-            <NavLink to={"/home"} className={classes.link}>
-              Home
-            </NavLink>
-          </span>
-          <span>
-            <NavLink to={"/precautions"} className={classes.link}>
-              Precautions
-            </NavLink>
-          </span>
-          <span>{userData.name}</span>
-        </div>
-      </div>
+    {contextHolder}
+      <Row>
+        <Col span={9} className={classes.first}>
+          <Card
+            className={classes.back}
+            style={{
+              width: 400,
+              background: "#1e293b",
+              border: "none",
+            }}
+          >
+            <div className={classes.icon1}>
+            <FontAwesomeIcon icon={faHandHoldingDroplet} size="3x"/>
+              <h3 className={classes.font2} style={{ marginLeft: "0.8rem" }}>
+                MediConnect
+              </h3>
+            </div>
+            <h2 className={classes.font} style={{ color: "#22c55e" }}>
+              Enter your symptoms and get to know about condition.
+            </h2>
+            <Button onClick={backHandler} style={{ background: "#22c55e",marginTop: "1rem" }} type="primary" block >
+                      Previous
+                    </Button>
+                    <Spin spinning={spinning} percent={percent} fullscreen />
+          </Card>
+        </Col>
 
-      <Flex
-        vertical
-        gap="small"
-        style={{
-          width: "100%",
-        }}
-      ></Flex>
+        <Col span={15}>
+          <div className={classes.card1}>
+            
+              <h1 className={classes.heading}>Symptoms.</h1>
+              <Form
+                name="basic"
+                labelCol={{
+                  span: 8,
+                }}
+                wrapperCol={{
+                  span: 16,
+                }}
+                style={{
+                  maxWidth: 600,
+                }}
+                initialValues={{
+                  remember: true,
+                }}
+                autoComplete="off"
+              >
+                <Form.Item
+                  name="Email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your email!",
+                    },
+                  ]}
+                >
+                  <div className={classes.btn}>
+                    <Input
+                      onChange={(e) => {
+                        setSym(e.target.value);
+                      }}
+                      value={sym}
+                      className={classes.input}
+                      placeholder="Enter Symptoms"
+                    />
+                    <Button style={{ background: "#22c55e" }} type="primary" block onClick={sympHandler}>
+                      Ask
+                    </Button>
+                  </div>
+                </Form.Item>
 
-      <div className={classes.mode}>
-        <Card
-          className={classes.card}
-          title="Input your Symptoms"
-          bordered={true}
-          style={{
-            width: 500,
-          }}
-        >
-          <div className={classes.btn}>
-            <Input
-              onChange={(e) => {
-                setSym(e.target.value);
-              }}
-              value={sym}
-              className={classes.input}
-              placeholder="Enter Symptoms"
-            />
-            <Button type="primary" block onClick={sympHandler}>
-              Ask
-            </Button>
-        
-          </div>
-        </Card>
-      </div>
-      
-  <div>
-  {/* <TextArea className={classes.mode1}  autoSize /> */}
-  {newData.response}
-  </div>
-
-      {/* <div className={classes.desc}>
-        example...
-        <br />
-        Give symptoms like dizzyness, headache or feeling cold.
-      </div> */}
+              </Form>
+            </div>
+            <Card className={classes.data}>
+                {!loading && newData}
+                {loading && <Loader />}
+                </Card>
+               
+        </Col>
+      </Row>
     </>
   );
 };

@@ -1,26 +1,50 @@
-.body{
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+html{
+padding: 0;
+margin: -8px;
+
 }
-
+.font{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 1000;
+}
+.font2{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 200;
+}
+.p{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 150;
+  font-size: large;
+  color: white;
+}
 .card{
-    
-    display: flex;
-    flex-direction: column;
-    width: 100%; 
-    justify-content: center;
-    align-items:center;
-    margin-top: 8rem;
-
+   display: flex;
+   flex-direction: column;
+   justify-content:center ;
+   text-align: center;
+   margin-top: 10rem;
+   margin-left: 15rem;
 }
 .heading{
-    /* background-color: #60a5fa; */
-    text-align: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+padding-right: 40rem;
+color: #22c55e;
 }
-.new{
-  background-color: #a1a1aa;
+.first{
+  background-color: #1e293b;
+  height: 730px;
 }
-.input{
-  background-color: #d1d5db;
+.icon{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: -150px;
+color: white;
+font-size: large;
+}
+.back{
+  margin-top: 10rem;
+  margin-left: 6rem;
 }

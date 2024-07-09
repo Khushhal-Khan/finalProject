@@ -24,12 +24,13 @@ userRouter.post("/login", async (req, res) => {
 });
 
 userRouter.post("/create", async (req, res) => {
-  const { email, pass, name, age, gender } = req.body;
+  const { email, pass, name, lastName, age, gender } = req.body;
 
   const data = {
     email,
     pass,
     name,
+    lastName,
     age,
     gender,
   };
@@ -44,7 +45,7 @@ userRouter.post("/create", async (req, res) => {
     await UserModel.create(data);
     // res.status(200).json({message: "Success"})
     const token = jwt.sign({ data }, secretKey);
-    console.log(token);
+    
     return res.status(200).json({ data, auth: token });
   } catch (error) {
     return res.status(500).json({ message: error.toString() });
