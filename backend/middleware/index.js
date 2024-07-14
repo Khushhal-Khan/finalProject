@@ -19,8 +19,3 @@ const jwtMiddleware = (req, res, next) => {
 };
 
 module.exports = jwtMiddleware;
-
-// verifye/decode
-// return user_id in req object
-
-// req.user_id = decoded._id

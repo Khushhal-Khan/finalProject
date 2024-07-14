@@ -75,8 +75,8 @@ if(vital === ""){
     setNewData("");
     setLoading(true);
     const res = await ollama.generate({
-      system: "Only give response about medical terms.",
-      model: "gemma:2b",
+      system: "only answer in 100 words. Only give response about medical terms.",
+      model: "qwen:1.8b",
       prompt: vital,
       stream: true,
     });

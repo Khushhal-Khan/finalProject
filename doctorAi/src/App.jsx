@@ -9,9 +9,8 @@ import Symptoms from "./components/Symptoms";
 import Vital from "./components/Vital";
 import Yes from "./components/Yes";
 import Create from "./components/Create";
-import Second from "./components/Second";
-import UnAuth from "./components/UnAuth";
 import Loader from "./components/Loader";
+import Landing from "./components/Landing";
 
 
 const App = () => {
@@ -20,7 +19,8 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<LogIn />} />
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/login" element={<LogIn />} />
           <Route exact path="/create" element={<Create />} />
           <Route exact path="/home" element={<Home /> } />
           <Route exact path="/precautions" element={<PreCautions />} />
@@ -28,7 +28,6 @@ const App = () => {
           <Route exact path="/vital" element={<Vital />} />
           <Route exact path="/answer" element={<Yes />} />
           <Route exact path="*" element={<Error />} />
-          <Route exact path="/second" element={<Second />} />
           <Route exact path="/loader" element={<Loader/>} />
         </Routes>
       </BrowserRouter>

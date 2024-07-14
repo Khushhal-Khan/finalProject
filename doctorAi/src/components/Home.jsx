@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row, Avatar, Breadcrumb  } from "antd";
@@ -10,6 +11,7 @@ import { faClipboardList } from '@fortawesome/free-solid-svg-icons'
 import { faHandHoldingDroplet } from '@fortawesome/free-solid-svg-icons'
 import { faHeartPulse } from '@fortawesome/free-solid-svg-icons'
 import { faLaptopMedical } from '@fortawesome/free-solid-svg-icons'
+import Footer from "./Footer";
 
 
 
@@ -19,15 +21,8 @@ const Home = () => {
   
   
   const clickHandler = () => {
-    // function PrintFirstLetter(word) {
-    //   let words = word.match(/\b\w/g);
-    //   words.forEach(firstLetter => {
-    //       console.log(firstLetter);
-    //   });
-    // }
-    // PrintFirstLetter(userData.name);
     localStorage.clear();
-    // navigate("/")
+
   };
 
   useEffect(() => {
@@ -54,16 +49,16 @@ const Home = () => {
     <div className={classes.img}>
       <div className={classes.div}>
       <div className={classes.icon}>
-      <FontAwesomeIcon style={{ color : "#b91c1c"}} icon={faLaptopMedical}  size="2x"  />
+      <FontAwesomeIcon style={{ color : "#e11d48"}} icon={faLaptopMedical}  size="2x"  />
       <h3 className={classes.font2} style={{ marginLeft: "0.5rem" }}>MediConnect </h3>
       </div>
       
-
+<div className={classes.nav}>
         <Breadcrumb
     items={[
      
       {
-        title: <NavLink to={"/precautions"} style={{ color: "#4a4d4c", fontSize : "larger", fontWeight: "600"}} >
+        title: <NavLink to={"/precautions"} style={{ color: "black", fontSize : "larger", fontWeight: "600"}} >
               Precautions
             </NavLink>,
       },
@@ -77,20 +72,24 @@ const Home = () => {
       },
     
       {
-        title: <NavLink to={"/"} style={{ color: "#4a4d4c", fontSize : "larger", fontWeight: "600"}}  onClick={clickHandler}>
+        title: <NavLink to={"/"} style={{ color: "black", fontSize : "larger", fontWeight: "600"}}  onClick={clickHandler}>
             Logout
           </NavLink>,
       },
     ]}
   />
+  </div>
 
         
       </div>
-
+      {/* <div className={classes.newHead}>
+      <h1>"Smart Doctor App"</h1>
+      </div> */}
       <div className={classes.row}>
         <Row gutter={16}>
-          <Col span={6}>
+          <Col span={10}>
             <Card
+            style={{ marginRight: "1rem"}}
             hoverable
               onClick={() => {
                 navigate("/symptoms");
@@ -111,12 +110,12 @@ const Home = () => {
     icon={<FontAwesomeIcon icon={faHandHoldingDroplet} />}
   />
   <div className={classes.text}>
-             <b style={{color : "#f87171", fontSize: "25px", fontWeight: "400" }}>Symptoms.</b> <br /> <i> Get the diagnosis for signs, Symptoms and conditions.</i>
+            <i style={{ fontSize : "larger", color: "#475569", fontWeight: "600"}}> Get the information of various diseases.</i>
              </div>
              </div>
             </Card>
           </Col>
-          <Col span={6}>
+          {/* <Col span={6}>
             <Card
             hoverable
               onClick={() => {
@@ -138,12 +137,12 @@ const Home = () => {
     icon={<FontAwesomeIcon icon={faHeartPulse} />}
   />
    <div className={classes.text}>
-              <b style={{color : "#f87171", fontSize: "25px",  fontWeight: "400" }}>Blood pressure <br/>Sugar level.</b> <br /> <i> Input your Blood pressure and sugar level.</i>
+              <b style={{color : "#475569", fontSize: "25px",  fontWeight: "600" }}>Blood pressure <br/>Sugar level.</b> <br /> <i> Input your Blood pressure and sugar level.</i>
               </div>
               </div>
             </Card>
-          </Col>
-          <Col span={6}>
+          </Col> */}
+          <Col span={10}>
             <Card
             hoverable
               onClick={() => {
@@ -164,14 +163,16 @@ const Home = () => {
     icon={<FontAwesomeIcon icon={faClipboardList} />}
   />
    <div className={classes.text}>
-              <b style={{color : "#f87171", fontSize: "25px",  fontWeight: "400" }}>Questions.</b> <br /> <i> By answering yes or no, know about your condition.</i>
+               <i style={{ fontSize : "larger", color: "#475569", fontWeight: "600"}}>Answer the questions and know about your health.</i>
               </div>
               </div>
             </Card>
           </Col>
         </Row>
       </div>
+  
       </div>
+      <Footer />
     </>
   );
 };

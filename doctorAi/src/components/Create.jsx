@@ -78,7 +78,7 @@ const Create = () => {
         pass,
       });
 
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log(error);
        messageApi.open({

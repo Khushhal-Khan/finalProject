@@ -20,6 +20,7 @@ import Loader from "./Loader";
 import { faLaptopMedical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandHoldingDroplet } from '@fortawesome/free-solid-svg-icons'
+import Footer from "./Footer";
 
 const ollama = new Ollama({ host: "http://localhost:11434" });
 
@@ -78,8 +79,8 @@ const backHandler = () => {
     setSym("");
     setLoading(true);
     const res = await ollama.generate({
-      system: "Do no answer questions except medical questions. only answer in 100 words.",
-      model: "gemma:2b",
+      system: "Do no answer more than 100 words. do not answer anything except disease names.",
+      model: "qwen:1.8b",
       prompt: sym,
       stream: true,
     });
@@ -109,9 +110,9 @@ const backHandler = () => {
               </h3>
             </div>
             <h2 className={classes.font} style={{ color: "#22c55e" }}>
-              Enter your symptoms and get to know about condition.
+              Enter the disease name and get the information of it.
             </h2>
-            <Button onClick={backHandler} style={{ background: "#22c55e",marginTop: "1rem" }} type="primary" block >
+            <Button onClick={backHandler} style={{ background: "#22c55e",marginTop: "1rem", width: "50%", }} type="primary" block >
                       Previous
                     </Button>
                     <Spin spinning={spinning} percent={percent} fullscreen />
@@ -119,9 +120,9 @@ const backHandler = () => {
         </Col>
 
         <Col span={15}>
+        <p style={{ fontSize: "medium", textAlign: "center"}}>Enter the disease name and get the information of that disease by just clicking Ask button.</p>
           <div className={classes.card1}>
-            
-              <h1 className={classes.heading}>Symptoms.</h1>
+              <h1 className={classes.heading}>Disease.</h1>
               <Form
                 name="basic"
                 labelCol={{
@@ -154,7 +155,7 @@ const backHandler = () => {
                       }}
                       value={sym}
                       className={classes.input}
-                      placeholder="Enter Symptoms"
+                      placeholder="Enter disease name"
                     />
                     <Button style={{ background: "#22c55e" }} type="primary" block onClick={sympHandler}>
                       Ask
@@ -171,6 +172,7 @@ const backHandler = () => {
                
         </Col>
       </Row>
+      <Footer />
     </>
   );
 };

@@ -1,0 +1,48 @@
+.img{
+    background-image: url("ai4.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 99vw;
+    height: 100vh;
+    
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -290px;
+    color: #e11d48;
+    font-size: large;
+    margin-left: -70rem;
+    }
+    .font2{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 800;        
+      }
+.card{
+  
+    height: 731px;
+    /* border-radius: 20px; */
+    border: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400; 
+    /* backdrop-filter: blur(2px);  */
+    background-color: #cdc8c84d;
+}
+.card1{
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.p{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    background-color: #cdc8c84d;
+    width: 15%;
+    border-radius: 20px;
+    }

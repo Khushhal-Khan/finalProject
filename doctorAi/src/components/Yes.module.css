@@ -30,7 +30,7 @@
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        margin-top: 4rem;
+        margin-top: 2rem;
         margin-left: 15rem;
         width: 70%;
         
@@ -40,7 +40,7 @@
         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
           "Lucida Sans", Arial, sans-serif;
         padding-right: 40rem;
-      
+      margin-bottom: 0;
         margin-left: -1rem;
         color: #22c55e;
       }
@@ -53,6 +53,8 @@
       .data{
         border: none;
         text-align: center;
+        height: 51vh;
+        /* background-color: #1e293b; */
         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         }
         
