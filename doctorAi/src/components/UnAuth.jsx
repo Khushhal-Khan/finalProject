@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom'
 const UnAuth = () => {
    const token = localStorage.getItem("token")
    if(!token){
-    return Navigate("/")
+    return Navigate("/login")
    }
  
 }

@@ -30,7 +30,7 @@ const navigate = useNavigate()
  <div className={classes.card1}>
        
   <div className={classes.p}>
-    <h1 style={{marginTop: '10rem', fontWeight: "400"}}>Smart Doctor Website.</h1>
+    <h1 style={{marginTop: '10rem', fontWeight: "400"}}>Smart Doctor App</h1>
     <p style={{fontSize: "larger", marginTop: '-0.4rem', fontWeight: "200"}}>AI based smart doctor website for getting the information of diseases and to know about personal health.</p>
     <p style={{fontSize: "larger", marginTop: '-0.4rem', fontWeight: "200"}}>Get the information about your health with Artificial Intelligence.</p>
     <Space>

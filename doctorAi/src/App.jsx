@@ -11,6 +11,7 @@ import Yes from "./components/Yes";
 import Create from "./components/Create";
 import Loader from "./components/Loader";
 import Landing from "./components/Landing";
+import Second from "./components/Second";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Route exact path="/answer" element={<Yes />} />
           <Route exact path="*" element={<Error />} />
           <Route exact path="/loader" element={<Loader/>} />
+          <Route exact path="/second" element={<Second />} />
         </Routes>
       </BrowserRouter>
     </>

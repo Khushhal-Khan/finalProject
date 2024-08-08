@@ -123,7 +123,34 @@
   color: #22c55e;
 }
 .data{
-border: none;
-text-align: center;
-font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  border: none;
+  text-align: center;
+  height: 51vh;
+  /* background-color: #1e293b; */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  }
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.suggestion:hover {
+  background-color: #f0f0f0;
 }

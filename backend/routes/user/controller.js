@@ -15,7 +15,7 @@ userRouter.post("/login", async (req, res) => {
     if (!userExists) {
       return res.status(400).json({ message: "not-exist" });
     }
-    const token = jwt.sign({ userExists }, secretKey);
+    const token = jwt.sign({ userExists }, secretKey );
     return res.status(200).json({ userExists, auth: token });
   } catch (error) {
     console.log(error);

@@ -1,25 +1,10 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect} from 'react'
+import React from 'react'
+import classes from "./Second.module.css"
 
 const Second = () => {
-    const [items, setItems] = useState([]) 
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //      const res = await fetch('http://localhost:3000')
-  //      const data = await res.json()
-  //      setItems(data.items)
-  //     }
-  //     fetchData()
-  //  }, [])
-
-
   return (
-    <>
-    {items.map(i => (
-        <p>{i.name}, {i.description} </p>
-    ))}
-    </>
+    <div className={classes.img}>Second</div>
   )
 }
 

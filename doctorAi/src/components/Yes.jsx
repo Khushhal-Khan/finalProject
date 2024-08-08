@@ -54,36 +54,36 @@ const Yes = () => {
   }, []);
 
   const yesHandler = () => {
-    setAnswer("i have cough and ");
+    setAnswer("i have cough, ");
     setDisable(true);
     console.log(answer);
   };
   const yesHandlerNo = () => {
-    setAnswerNo("i am not feeling cold but ");
+    setAnswerNo("i have not cough, ");
     setDisable(true);
   };
   const headacheHandler = () => {
-    setHeadache(" i am feeling headache and ");
+    setHeadache(" i am feeling headache, ");
     setDisable1(true);
   };
   const noHeadHandler = () => {
-    setNoHeadache(" i am not feeling headache but ");
+    setNoHeadache(" i am not feeling headache, ");
     setDisable1(true);
   };
   const bodyHandler = () => {
-    setBody(" i am feeling bodyache and ")
+    setBody(" i am feeling bodypain, ")
     setDisable2(true)
   }
 
   const noBodyHandler = () => {
-    setNoBody(" i am not feeling bodyache and ")
+    setNoBody(" i am not feeling bodypain, ")
     setDisable2(true)
   }
   const tempHandler = (e) => {
    setTemp(e.target.value)
   };
 const tem = temp
-const perature = temp === "" ? ""  : `my body temperature is ${temp} °F `
+const temperature = tem === "" ? ""  : `my body temperature is ${tem}°F `
 
 
   const bpHandler = (e) => {
@@ -91,7 +91,7 @@ const perature = temp === "" ? ""  : `my body temperature is ${temp} °F `
   };
 
 const blood = bp 
-const pressure = blood === "" ? "" :  `my blood pressure is ${blood} mmHg `
+const pressure = blood === "" ? "" :  `my blood pressure is ${blood}mmHg `
 
   const clickHandler = async (e) => {
     e.preventDefault();
@@ -128,7 +128,7 @@ const pressure = blood === "" ? "" :  `my blood pressure is ${blood} mmHg `
 
     const res = await ollama.generate({
       system: "Do not answer more than 150 words.",
-      model: "gemma:2b",
+      model: "qwen:1.8b",
       prompt:
         answer +
         answerNo +
@@ -136,10 +136,9 @@ const pressure = blood === "" ? "" :  `my blood pressure is ${blood} mmHg `
         noHeadache +
         body +
         noBody + 
-        perature +
+        temperature +
         pressure +
-        " What could be the possible disese?" +
-        " also give me precautions about it.",
+        "is it normal or not.",
       stream: true,
     });
     for await (const i of res) {
@@ -245,7 +244,7 @@ const pressure = blood === "" ? "" :  `my blood pressure is ${blood} mmHg `
 
               <div className={classes.button1}>
                 <h4 style={{ marginLeft: "2.8rem" }}>
-                  3 : Are you feeling bodyache ?
+                  3 : Are you feeling bodypain ?
                 </h4>
 
                 {!disable2 && (

@@ -32,6 +32,7 @@ const Symptoms = () => {
   const navigate = useNavigate()
   const [spinning, setSpinning] = useState(false);
   const [percent, setPercent] = useState(0);
+  const [toggle, setToggle] = useState(true);
   const [messageApi, contextHolder] = message.useMessage();
 
 const backHandler = () => {
@@ -74,13 +75,14 @@ const backHandler = () => {
         content: "Please enter some symptoms!",
       });
     }
+    setToggle(false);
 
     setNewData("");
     setSym("");
     setLoading(true);
     const res = await ollama.generate({
-      system: "Do no answer more than 100 words. do not answer anything except disease names.",
-      model: "qwen:1.8b",
+      system: "Do no answer more than 200 words. only answer in medical terms.",
+      model: "gemma:2b",
       prompt: sym,
       stream: true,
     });
@@ -88,6 +90,7 @@ const backHandler = () => {
       setNewData((prev) => prev + i.response);
       setLoading(false);
     }
+
   };
 
   return (
@@ -120,6 +123,8 @@ const backHandler = () => {
         </Col>
 
         <Col span={15}>
+      {toggle && (
+        <div>
         <p style={{ fontSize: "medium", textAlign: "center"}}>Enter the disease name and get the information of that disease by just clicking Ask button.</p>
           <div className={classes.card1}>
               <h1 className={classes.heading}>Disease.</h1>
@@ -165,10 +170,30 @@ const backHandler = () => {
 
               </Form>
             </div>
-            <Card className={classes.data}>
+            </div>
+      )}
+            {!toggle && (
+              <div>
+              <Card className={classes.data}>
                 {!loading && newData}
                 {loading && <Loader />}
                 </Card>
+                <Button
+                style={{
+                  // marginTop: "15rem",
+                  position: "fixed",
+                  width: "20%",
+                  marginLeft: "20rem",
+                  background: "#22c55e",
+                }}
+                type="primary"
+                block
+                onClick={() => { setToggle(true)}}
+              >
+                back
+              </Button>
+              </div>
+            )} 
                
         </Col>
       </Row>
