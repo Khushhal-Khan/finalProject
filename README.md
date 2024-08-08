@@ -1,5 +1,3 @@
-
-
 1) This is MERN site with AI model ollama3 using to response to users.
 2) In this website user can get the details of any disease by just inputing the disease name.
 3) If the user want to find what kind of disease he/she have then user can go to question page and answer multiple conditions 
